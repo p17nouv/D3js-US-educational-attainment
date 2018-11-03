@@ -234,7 +234,7 @@ polyline{
 }
 
 form {
-    text-align: fixed;
+    text-align: center;
     margin-top: 30px;
 }
 
@@ -245,8 +245,7 @@ form {
 #stack-form {
 }
 
-#chart-form{
-}
+
 
 .tree-text {
     fill: white;
