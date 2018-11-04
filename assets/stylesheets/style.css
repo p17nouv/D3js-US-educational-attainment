@@ -75,13 +75,6 @@ nav ul li a {
 body {
     font-size: 14px;
     font-family: "Muli", "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-	@media only screen and (max-width : 768px){
-
-	body{
-		max-width= device-width;
-	}
-}
 }
 
 text{
