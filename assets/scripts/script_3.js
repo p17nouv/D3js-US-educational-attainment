@@ -34,7 +34,7 @@ var yaxis = d3.axisLeft(yscale)
 var stackedBarSVG = d3.select("#stacked-bar-chart")
 	//.attr("width", width + margin.left + margin.right)
 	//.attr("height", height + margin.top + margin.bottom)
-	.attr( "viewBox", "0 0 "+width + margin.left + margin.right+" "+height + margin.top + margin.bottom) 
+	.attr( "viewBox", "0 0 "+(width + margin.left + margin.right).toString()+" "+(height + margin.top + margin.bottom).toString()) 
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
