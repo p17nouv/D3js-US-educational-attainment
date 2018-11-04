@@ -239,18 +239,11 @@ form {
 }
 
 #tree-form {
-	 max-width: 100%;
-	  overflow:auto;
-    margin: 50px;
-        margin-top: 20px
 
 }
 
 #stack-form {
-	max-width: 100%;
-	  overflow:auto;
-    margin: 50px;
-        margin-top: 20px
+	
 }
 
 
