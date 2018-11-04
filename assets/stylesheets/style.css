@@ -32,7 +32,7 @@ header {
 
 
 header h1 {
-  position: absolut;
+  position: absolute;
   top: 72px; 
   left: 50px;
   color: #fff;
@@ -90,11 +90,9 @@ label{
 
 .radio-toolbar input[type="radio"] {
   display: none;
-    
 }
 
 .radio-toolbar label {
-
   display: inline-block;
   background-color: #ddd;
   padding: 4px 11px;
@@ -108,8 +106,6 @@ label{
   background-color: #bbb;
 }
 
-
-
 a, a:visited, a:hover {
 	text-decoration: none;
 }
@@ -121,7 +117,7 @@ textarea, input {
 }
 
 textarea:focus, input:focus {
-	border-color: none;
+  border-color: none;
 }
 
 textarea:focus, input:focus, button:focus, button {
@@ -129,7 +125,7 @@ textarea:focus, input:focus, button:focus, button {
 }
 
 button {
-	border: none;
+  border: none;
 }
 
 .arc text {
@@ -216,13 +212,10 @@ polyline{
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
-  //CSS
 	.labelName {
 	    font-size: 1.5em;
 	    font-style: italic;
-	}
-  
+	}  
 }
 
 #pie-chart {
@@ -283,8 +276,6 @@ form {
 #stack-form {
 	
 }
-
-
 
 .tree-text {
     fill: white;
