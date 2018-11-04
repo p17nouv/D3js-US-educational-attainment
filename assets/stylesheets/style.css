@@ -26,13 +26,12 @@
 
 
 header {
-  position: center; /**/
   height:36px;
   z-index:10;
 }
 
 header h1 {
-  position: center; /**/
+  position: absolut;
   top: 72px; 
   left: 50px;
   color: #fff;
@@ -240,10 +239,14 @@ form {
 }
 
 #tree-form {
+	 max-width: 100%;
+	  overflow:auto;
 
 }
 
 #stack-form {
+	max-width: 100%;
+	  overflow:auto;
 }
 
 
