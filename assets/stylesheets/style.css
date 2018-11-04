@@ -284,9 +284,7 @@ form {
 }
 
 .container {
-  border: 10px solid #b6bdc3;
-  width: 100%;
-  background: #fff;
+  width: 90%;
   margin: 0 auto;
 }
 
