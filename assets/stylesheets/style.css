@@ -30,6 +30,12 @@ header {
   z-index:10;
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    header{
+        width: 100%;
+    }
+
 header h1 {
   position: absolut;
   top: 72px; 
