@@ -17,6 +17,13 @@
     --code-font: ;
 }
 
+@media only screen and (max-width : 768px){
+
+	header{
+		max-width= device-width;
+	}
+}
+
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
