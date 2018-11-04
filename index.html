@@ -27,7 +27,7 @@
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Nation-Wide Education Level of Population in Schooling');" onmouseleave="responsiveVoice.cancel();">Nation-Wide Education Level of Population in Schooling</h2>
 	
     <div class="container">
-	<svg id="pie-chart"><!-- width="960" height="450"> -->
+	<svg id="pie-chart" viewBox="0 0 960 450"> <!-- according to https://tympanus.net/Tutorials/ResponsiveSVGs/index4.html -->
 	</svg>
     </div>
     <a name="regional"></a>
@@ -60,7 +60,7 @@
             <label for="radio2" onmouseover="responsiveVoice.speak('Students (in number of people)');" onmouseleave="responsiveVoice.cancel();">Students (in number of people)</label>
         </div>
     </form>
-    <div>
+    <div class="container">
         <svg id="stacked-bar-chart"></svg>
     </div>
 
