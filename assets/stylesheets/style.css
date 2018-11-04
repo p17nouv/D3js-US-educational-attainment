@@ -26,12 +26,13 @@
 
 
 header {
+  position: center; /**/
   height:36px;
   z-index:10;
 }
 
 header h1 {
-  position: absolute;
+  position: center; /**/
   top: 72px; 
   left: 50px;
   color: #fff;
