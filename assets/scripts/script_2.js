@@ -1,12 +1,8 @@
 var el_id = 'chart';
 var treeSumSortType = "number";
 
-var obj = document.getElementById(el_id);
-
-//var divWidth = obj.offsetWidth;
-
 var margin = {top: 30, right: 0, bottom: 20, left: 0},
-    width = .97*window.innerWidth - margin.left - margin.right, //divWidth,
+    width = .97*window.innerWidth - margin.left - margin.right, // same as script3
     height = 500 - margin.top - margin.bottom,
     formatNumber = d3.format(","),
     transitioning;
@@ -28,11 +24,8 @@ var treemap = d3.treemap()
         .round(false);
 
 var svg = d3.select('#'+el_id)
-    //.attr("width", width + margin.left + margin.right)
-    //.attr("height", height + margin.bottom + margin.top)
+    // make svg responsive !!!
     .attr( "viewBox", "0 0 " +(width + margin.left + margin.right).toString()+" "+(height + margin.bottom + margin.top).toString())
-    //.style("margin-left", -margin.left + "px")
-    //.style("margin-right", -margin.right + "px")
     .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .style("shape-rendering", "crispEdges");
