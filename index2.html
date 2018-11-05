@@ -45,12 +45,13 @@
       </div>
     </nav>
   
+<div class="container">
     <a name="national"></a>
     <h1 class="title" onmouseover="responsiveVoice.speak('Educational Attainment in the United States');" onmouseleave="responsiveVoice.cancel();">Educational Attainment in the United States</h1>
     <br>
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Nation-Wide Education Level of Population in Schooling');" onmouseleave="responsiveVoice.cancel();">Nation-Wide Education Level of Population in Schooling</h2>
 	
-    <div class="container">
+    <div class="helen_container">
 	<svg id="pie-chart" viewBox="0 0 960 450"> <!-- according to https://tympanus.net/Tutorials/ResponsiveSVGs/index4.html -->
 	</svg>
     </div>
@@ -71,7 +72,7 @@
         </div>
     </form>
 	<p></p>
-	<div class="container">
+	<div class="helen_container">
   	  <svg id="chart"></svg>
 	 </div>
 	<a name="state"></a>
@@ -86,10 +87,11 @@
             <label for="radio2" onmouseover="responsiveVoice.speak('Students (in number of people)');" onmouseleave="responsiveVoice.cancel();">Students (in number of people)</label>
         </div>
     </form>
-    <div class="container">
+    <div class="helen_container">
         <svg id="stacked-bar-chart"></svg>
     </div>
-
+</div>
+	
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <!-- Latest compiled and minified JavaScript -->
