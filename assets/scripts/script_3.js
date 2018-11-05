@@ -2,7 +2,7 @@
 // Data Visualization III - Stacked Bar Chart
 
 var 	w = .97*window.innerWidth,
-	margin = {top: .01*w, right: .23*w, bottom: .09*w, left: .23*w},
+	margin = {top: .01*w, right: .08*w, bottom: .09*w, left: .08*w},
 	width = w - margin.left - margin.right,
 	height = Math.min(.7*w, window.innerHeight*.9) - margin.top - margin.bottom;
 
