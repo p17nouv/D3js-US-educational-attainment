@@ -28,8 +28,9 @@ var treemap = d3.treemap()
         .round(false);
 
 var svg = d3.select('#'+el_id).append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.bottom + margin.top)
+    //.attr("width", width + margin.left + margin.right)
+    //.attr("height", height + margin.bottom + margin.top)
+    .attr( "viewBox", "0 0 " +(width + margin.left + margin.right).toString()+" "+(height + margin.bottom + margin.top).toString())
     .style("margin-left", -margin.left + "px")
     .style("margin-right", -margin.right + "px")
     .append("g")
