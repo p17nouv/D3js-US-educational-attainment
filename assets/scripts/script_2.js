@@ -3,10 +3,10 @@ var treeSumSortType = "number";
 
 var obj = document.getElementById(el_id);
 
-var divWidth = obj.offsetWidth;
+//var divWidth = obj.offsetWidth;
 
 var margin = {top: 30, right: 0, bottom: 20, left: 0},
-    width = divWidth,
+    width = .97*window.innerWidth - margin.left - margin.right, //divWidth,
     height = 500 - margin.top - margin.bottom,
     formatNumber = d3.format(","),
     transitioning;
