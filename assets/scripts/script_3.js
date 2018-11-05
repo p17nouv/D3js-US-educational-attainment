@@ -88,7 +88,7 @@ d3.tsv("assets/data/data.tsv", function(error, data) {
 		.attr("x", 7)
 		.attr("dy", ".35em")
 		.attr("transform", "rotate(65)")
-		.style("font-size","1vw");
+		.style("font-size","1vw")
 		.style("text-anchor", "start");
 
 	// add the y axis
