@@ -1,12 +1,13 @@
 // Script 3
 // Data Visualization III - Stacked Bar Chart
 
-var margin = {top: 10, right: 231, bottom: 90, left: 236},
-	width = .97*window.innerWidth - margin.left - margin.right,
-	height = Math.min(700, window.innerHeight*.9) - margin.top - margin.bottom;
+var 	w = .97*window.innerWidth,
+	margin = {top: .01*w, right: .23*w, bottom: .09*w, left: .23*w},
+	width = w - margin.left - margin.right,
+	height = Math.min(.7*w, window.innerHeight*.9) - margin.top - margin.bottom;
 
 var xscale = d3.scaleBand()
-                .range([0, width]);
+               .range([0, width]);
 
 var yscale = d3.scaleLinear()
 	           .range([height, 0]);
@@ -29,11 +30,9 @@ var colors = d3.scaleOrdinal()
 var xaxis = d3.axisBottom(xscale);
 
 var yaxis = d3.axisLeft(yscale)
-	           .tickFormat(d3.format(".0%")); // **
+	      .tickFormat(d3.format(".0%")); // **
 
 var stackedBarSVG = d3.select("#stacked-bar-chart")
-	//.attr("width", width + margin.left + margin.right)
-	//.attr("height", height + margin.top + margin.bottom)
 	.attr( "viewBox", "0 0 "+(width + margin.left + margin.right).toString()+" "+(height + margin.top + margin.bottom).toString()) 
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
