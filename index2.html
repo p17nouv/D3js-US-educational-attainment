@@ -21,7 +21,7 @@
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 </head>	       
 <body>
-  
+  <div class="container-fluid">
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -32,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">p17nouv</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -48,7 +48,6 @@
 <div class="container">
     <a name="national"></a>
     <h1 class="title" onmouseover="responsiveVoice.speak('Educational Attainment in the United States');" onmouseleave="responsiveVoice.cancel();">Educational Attainment in the United States</h1>
-    <br>
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Nation-Wide Education Level of Population in Schooling');" onmouseleave="responsiveVoice.cancel();">Nation-Wide Education Level of Population in Schooling</h2>
 	
     <div class="helen_container">
@@ -56,7 +55,7 @@
 	</svg>
     </div>
     <a name="regional"></a>
-    <br><br><br>
+
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Educational Attainment: Region-level Breakdown of University Students');" onmouseleave="responsiveVoice.cancel();">Educational Attainment: Region-level Breakdown of University Students</h2>
 	
     <form id="tree-form">
@@ -71,12 +70,11 @@
             <label for="mode4" onmouseover="responsiveVoice.speak('Females in College (18-24yrs) (in %)');" onmouseleave="responsiveVoice.cancel();">Females in College (18-24yrs) (in %)</label>
         </div>
     </form>
-	<p></p>
 	<div class="helen_container">
   	  <svg id="chart"></svg>
 	 </div>
 	<a name="state"></a>
-    <br><br>
+    
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Education Level of Population in Schooling: State-level Breakdown');" onmouseleave="responsiveVoice.cancel();">Education Level of Population in Schooling: State-level Breakdown</h2>
 	
     <form id="stack-form">
@@ -91,7 +89,7 @@
         <svg id="stacked-bar-chart"></svg>
     </div>
 </div>
-	
+	</div>	
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <!-- Latest compiled and minified JavaScript -->
