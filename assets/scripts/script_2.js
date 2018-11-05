@@ -27,12 +27,12 @@ var treemap = d3.treemap()
         .paddingInner(0)
         .round(false);
 
-var svg = d3.select('#'+el_id).append("svg")
+var svg = d3.select('#'+el_id)
     //.attr("width", width + margin.left + margin.right)
     //.attr("height", height + margin.bottom + margin.top)
     .attr( "viewBox", "0 0 " +(width + margin.left + margin.right).toString()+" "+(height + margin.bottom + margin.top).toString())
-    .style("margin-left", -margin.left + "px")
-    .style("margin-right", -margin.right + "px")
+    //.style("margin-left", -margin.left + "px")
+    //.style("margin-right", -margin.right + "px")
     .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .style("shape-rendering", "crispEdges");
