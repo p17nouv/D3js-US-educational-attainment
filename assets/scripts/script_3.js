@@ -2,7 +2,7 @@
 // Data Visualization III - Stacked Bar Chart
 
 var 	w = .97*window.innerWidth,
-	margin = {top: .01*w, right: .16*w, bottom: .1*w, left: .04*w},
+	margin = {top: .01*w, right: .18*w, bottom: .1*w, left: .04*w},
 	width = w - margin.left - margin.right,
 	height = Math.min(.7*w, window.innerHeight*.9) - margin.top - margin.bottom;
 
@@ -117,7 +117,7 @@ d3.tsv("assets/data/data.tsv", function(error, data) {
 		.data(colors.domain())
 		.enter().append("g")
 		.attr("class", "legend")
-		.attr("transform", function(d, i) { return "translate(57," + ((height-222) - (i * 20)) + ")"; });
+		.attr("transform", function(d, i) { return "translate(57," + (30+(i * 20)) + ")"; });
 
 	legend.append("rect")
 		.attr("x", width - 18)
