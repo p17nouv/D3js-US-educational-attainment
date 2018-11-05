@@ -2,7 +2,7 @@
 // Data Visualization III - Stacked Bar Chart
 
 var 	w = .97*window.innerWidth,
-	margin = {top: .01*w, right: .08*w, bottom: .09*w, left: .08*w},
+	margin = {top: .01*w, right: .09*w, bottom: .09*w, left: .09*w},
 	width = w - margin.left - margin.right,
 	height = Math.min(.7*w, window.innerHeight*.9) - margin.top - margin.bottom;
 
@@ -10,7 +10,7 @@ var xscale = d3.scaleBand()
                .range([0, width]);
 
 var yscale = d3.scaleLinear()
-	           .range([height, 0]);
+	       .range([height, 0]);
 
 var colors = d3.scaleOrdinal()
 //.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
@@ -88,6 +88,7 @@ d3.tsv("assets/data/data.tsv", function(error, data) {
 		.attr("x", 7)
 		.attr("dy", ".35em")
 		.attr("transform", "rotate(65)")
+		.style("font-size","1vw");
 		.style("text-anchor", "start");
 
 	// add the y axis
