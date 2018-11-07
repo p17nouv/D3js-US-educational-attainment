@@ -58,10 +58,10 @@ function donutChart() {
             // ===========================================================================================
             // append the pieChartSVG object to the selection
             var pieChartSVG = selection
-              .attr('width', width + margin.left + margin.right)
-              .attr('height', height + margin.top + margin.bottom)
-                        .call(responsivefy)
-              .append('g')
+               .attr('width', width + margin.left + margin.right)
+               .attr('height', height + margin.top + margin.bottom)
+			   .call(responsivefy)
+               .append('g')
                 .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
             // ===========================================================================================
 
