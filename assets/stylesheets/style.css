@@ -24,20 +24,6 @@
 	-ms-box-sizing: border-box;
 }
 
-
-header {
-  height:36px;
-  z-index:10;
-}
-
-
-header h1 {
-  position: absolute;
-  top: 72px; 
-  left: 50px;
-  color: #fff;
-}
-
 .fixed-header {
   position: fixed;
   top:0;
@@ -45,33 +31,6 @@ header h1 {
   width: 100%; 
   margin: 0 auto;
   float: left;
-}
-
-nav {
-  width:100%;
-  height:60px;
-  background: #292f36;
-  position:fixed;
-  z-index:10;
-}
-
-nav ul { 
-  list-style-type: none;
-  margin: 0 auto;
-  padding-left:0;
-  text-align:right;
-  width: 960px; 
-  max-width: 100%;
-}
-
-nav ul li { 
-  display: inline-block; 
-  line-height: 60px;
-  margin-left: 10px;
-}
-nav ul li a {
-  text-decoration: none; 
-  color: #a9abae;
 }
 
 body {
@@ -98,8 +57,9 @@ label{
   padding: 4px 11px;
   font-family: "Arial";
   font-size: 16px;
-  cursor: auto;
+  cursor: pointer;
   border-style: dotted;
+  border-width: 2px;
 }
 
 .radio-toolbar input[type="radio"]:checked+label {
@@ -184,17 +144,40 @@ polyline{
 /* In biology we generally italicise species names. */
 
 /* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 1281px) {
-  	.labelName {
-	    font-size: 0.9em;
+@media (min-width: 320px) and (max-width: 480px) {
+	.labelName {
+	    font-size: 2.0em;
 	    font-style: italic;
-	}
+	}  
 }
-
+@media (min-width: 481px) and (max-width: 640px) {
+	.labelName {
+	    font-size: 1.7em;
+	    font-style: italic;
+	}  
+}
+@media (min-width: 641px) and (max-width: 800px) {
+	.labelName {
+	    font-size: 1.5em;
+	    font-style: italic;
+	}  
+}
+@media (min-width: 801px) and (max-width: 960px) {
+	.labelName {
+	    font-size: 1.3em;
+	    font-style: italic;
+	}  
+}
+@media (min-width: 961px) and (max-width: 1024px) {
+	.labelName {
+	    font-size: 1.1em;
+	    font-style: italic;
+	}  
+}
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -207,16 +190,17 @@ polyline{
 	} 
 }
 /* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
-	.labelName {
-	    font-size: 1.5em;
+@media (min-width: 1281px) {
+  	.labelName {
+	    font-size: 0.9em;
 	    font-style: italic;
-	}  
+	}
 }
+
 
 #pie-chart {
     display: block;
@@ -266,7 +250,6 @@ polyline{
 
 form {
     text-align: center;
-    margin-top: 30px;
 }
 
 #tree-form {
@@ -289,88 +272,92 @@ form {
 }
 
     #chart {
-	  max-width: 100%;
-	  overflow:auto;
-    margin: 50px;
+	max-width: 100%;
+	overflow:auto;
+   	margin-left: auto;
+	margin-right: auto;
         margin-top: 20px;
-	}
-	text {
-	  pointer-events: none;
-	}
-	.grandparent text {
-	  font-weight: bold;
-	}
-	rect {
-	  stroke: #fff;
-	  stroke-width: 1px;
-	}
-	rect.parent,
-	.grandparent rect {
-	  stroke-width: 3px;
-	}
-	.grandparent:hover rect {
-	  fill: #FF9B42;
-	}
-	.children rect.parent,
-	.grandparent rect {
-	  cursor: pointer;
-	}
+}
+text {
+  pointer-events: none;
+}
+.grandparent text {
+  font-weight: bold;
+}
+rect {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+rect.parent,
+.grandparent rect {
+  stroke-width: 3px;
+}
+.grandparent:hover rect {
+  fill: #FF9B42;
+}
+.children rect.parent,
+.grandparent rect {
+  cursor: pointer;
+}
 
-    .children text.parent,
-	.grandparent text {
-	  fill: #fff;
-	}
-	.children rect.child {
-        transition: stroke-width 0.2s;
-	}
-	.children rect.parent {
-        fill: none;
-	}
-	.children:hover rect.child {
+   .children text.parent,
+.grandparent text {
+  fill: #fff;
+}
+.children rect.child {
+       transition: stroke-width 0.2s;
+}
+.children rect.parent {
+      	 fill: none;
+}
+.children:hover rect.child {
 	   stroke-width: 3px;
-        transition: stroke-width 0.2s;
-	}
+	       transition: stroke-width 0.2s;
+}
 
-	.legend {
-	  margin-bottom:8px !important;
-	}
-	.legend rect {
-	  stroke-width: 0px;
-	}
-	.legend text {
+.legend {
+ 	 margin-bottom:8px !important;
+}
+.legend rect {
+ 	 stroke-width: 0px;
+}
+.legend text {
 	  text-anchor: middle;
 	  pointer-events: auto;
-	  font-size: 13px;
+	  font-size: 10px;
 	  font-family: sans-serif;
 	  fill: black;
-	}
-	.form-group {
-	    text-align:left;
-	}
-	.textdiv {
+}
+.form-group {
+  	  text-align:left;
+}
+.textdiv {
 	    font-size: 14px;
 	    padding: 7px;
 	    cursor: pointer;
 	    overflow:none;
-	}
-	.textdiv .title {
+}
+.textdiv .title {
 	    font-size: 16px !important;
 	    font-weight: bold;
 	    margin-top: 8px;
-	}
-	.textdiv p{
-        text-align: center;
+}
+.textdiv p{
+	    text-align: center;
 	    line-height: 13px;
 	    margin:0 0 4px !important;
 	    padding:0px;
 	    font-size:12px !important;
-	}
-    
-    .extra {
-        text-align: center;
-	    line-height: 13px;
-	    margin:0 0 4px !important;
-	    padding:0px;
-	    font-size:8px !important;
-        color: #0FA3B1;
-    }
+}
+.textdiv .value {
+	font-weight: bold;
+}
+   
+.extra {
+	text-align: center;
+	line-height: 13px;
+	margin:0 0 4px !important;
+	padding:0px;
+	font-size:8px !important;
+	color: #0FA3B1;
+   }
