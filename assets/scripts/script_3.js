@@ -1,10 +1,10 @@
 // Script 3
 // Data Visualization III - Stacked Bar Chart
 
-var 	w = .97*window.innerWidth,
-	margin = {top: .01*w, right: .18*w, bottom: .1*w, left: .04*w},
-	width = w - margin.left - margin.right,
-	height = Math.min(.7*w, window.innerHeight*.9) - margin.top - margin.bottom;
+var w = .97*window.innerWidth,
+	margin = {top: 10, right: 156, bottom: 100, left: 50},
+	width = 900 - margin.left - margin.right,
+	height = 300 - margin.top - margin.bottom;
 
 var xscale = d3.scaleBand()
                .range([0, width]);
@@ -13,24 +13,19 @@ var yscale = d3.scaleLinear()
 	       .range([height, 0]);
 
 var colors = d3.scaleOrdinal()
-//.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-// .range(["#177E89", "#0a5971", "#0f436f", "#444b80", "#664d83", "#95457c", "#9a295d"]);
-//.range(["#0a5971", "#177E89", "#4b8e77", "#a9ad70", "#ccb221", "#cb8b25", "#DB3A34"]);
-//.range(["#ef9999", "#e8b9ae", "#d8cdb3", "#90afa2", "#6f94a3", "#607495", "#4e5684"]);
-//.range(["#0FA3B1", "#73c3bf", "#a1d8c8", "#cbe0a7", "#f2db84", "#f7af72", "#FF9B42"]);
-.range(["hsl(190, 69%, 65%)",
-	"hsl(177, 69%, 65%)", 
-	"hsl(144, 69%, 65%)", 
-	"hsl(100, 69%, 65%)", 
-	"hsl(47, 69%, 65%)",
-	"hsl(28, 69%, 65%)",
-	"hsl(0, 100%, 50%)"]);
+		       .range(["hsl(190, 69%, 65%)",
+					   "hsl(177, 69%, 65%)", 
+					   "hsl(144, 69%, 65%)", 
+					   "hsl(100, 69%, 65%)", 
+					   "hsl(47, 69%, 65%)",
+					   "hsl(28, 69%, 65%)",
+					   "hsl(0, 100%, 50%)"]);
 
 
 var xaxis = d3.axisBottom(xscale);
 
 var yaxis = d3.axisLeft(yscale)
-	      .tickFormat(d3.format(".0%")); // **
+			  .tickFormat(d3.format(".0%")); // **
 
 var stackedBarSVG = d3.select("#stacked-bar-chart")
 	.attr( "width", width + margin.left + margin.right)
@@ -91,7 +86,7 @@ d3.tsv("assets/data/data.tsv", function(error, data) {
 		.attr("x", 7)
 		.attr("dy", ".35em")
 		.attr("transform", "rotate(65)")
-		.style("font-size","1vw")
+		//.style("font-size","1vw")
 		.style("text-anchor", "start");
 
 	// add the y axis
@@ -120,17 +115,17 @@ d3.tsv("assets/data/data.tsv", function(error, data) {
 		.data(colors.domain())
 		.enter().append("g")
 		.attr("class", "legend")
-		.attr("transform", function(d, i) { return "translate(57," + (30+(i * 20)) + ")"; });
+		.attr("transform", function(d, i) { return "translate(30," + (30+(i * 14)) + ")"; });
 
 	legend.append("rect")
-		.attr("x", width - 18)
-		.attr("width", 18)
-		.attr("height", 18)
+		.attr("x", width - 12)
+		.attr("width", 12)
+		.attr("height", 12)
 		.style("fill", colors);
 
 	legend.append("text")
-		.attr("x", width + 10)
-		.attr("y", 9)
+		.attr("x", width + 5)
+		.attr("y", 5)
 		.attr("dy", ".35em")
 		.style("text-anchor", "start")
 		.text(function(d) { return d; });
