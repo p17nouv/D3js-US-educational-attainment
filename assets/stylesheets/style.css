@@ -58,7 +58,7 @@ label{
   font-family: "Arial";
   font-size: 16px;
   cursor: pointer;
-  border-style: dotted;
+  border-style: solid;
   border-width: 2px;
 }
 
@@ -271,12 +271,12 @@ form {
   margin: 0 auto;
 }
 
-    #chart {
-	max-width: 100%;
-	overflow:auto;
-   	margin-left: auto;
-	margin-right: auto;
-        margin-top: 20px;
+#chart {
+  max-width: 100%;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 text {
   pointer-events: none;
@@ -300,59 +300,59 @@ rect.parent,
   cursor: pointer;
 }
 
-   .children text.parent,
+.children text.parent,
 .grandparent text {
   fill: #fff;
 }
 .children rect.child {
-       transition: stroke-width 0.2s;
+	transition: stroke-width 0.2s;
 }
 .children rect.parent {
-      	 fill: none;
+	fill: none;
 }
 .children:hover rect.child {
-	   stroke-width: 3px;
-	       transition: stroke-width 0.2s;
+   stroke-width: 3px;
+	transition: stroke-width 0.2s;
 }
 
 .legend {
- 	 margin-bottom:8px !important;
+  margin-bottom:8px !important;
 }
 .legend rect {
- 	 stroke-width: 0px;
+  stroke-width: 0px;
 }
 .legend text {
-	  text-anchor: middle;
-	  pointer-events: auto;
-	  font-size: 10px;
-	  font-family: sans-serif;
-	  fill: black;
+  text-anchor: middle;
+  pointer-events: auto;
+  font-size: 10px;
+  font-family: sans-serif;
+  fill: black;
 }
 .form-group {
-  	  text-align:left;
+	text-align:left;
 }
 .textdiv {
-	    font-size: 14px;
-	    padding: 7px;
-	    cursor: pointer;
-	    overflow:none;
+	font-size: 14px;
+	padding: 7px;
+	cursor: pointer;
+	overflow:none;
 }
 .textdiv .title {
-	    font-size: 16px !important;
-	    font-weight: bold;
-	    margin-top: 8px;
+	font-size: 16px !important;
+	font-weight: bold;
+	margin-top: 8px;
 }
 .textdiv p{
-	    text-align: center;
-	    line-height: 13px;
-	    margin:0 0 4px !important;
-	    padding:0px;
-	    font-size:12px !important;
+	text-align: center;
+	line-height: 13px;
+	margin:0 0 4px !important;
+	padding:0px;
+	font-size:12px !important;
 }
 .textdiv .value {
 	font-weight: bold;
 }
-   
+
 .extra {
 	text-align: center;
 	line-height: 13px;
@@ -360,4 +360,9 @@ rect.parent,
 	padding:0px;
 	font-size:8px !important;
 	color: #0FA3B1;
-   }
+}
+
+/* custom checkbox */
+.mycheck {
+  cursor: pointer;
+}
