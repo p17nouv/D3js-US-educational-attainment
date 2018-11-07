@@ -33,7 +33,10 @@ var yaxis = d3.axisLeft(yscale)
 	      .tickFormat(d3.format(".0%")); // **
 
 var stackedBarSVG = d3.select("#stacked-bar-chart")
-	.attr( "viewBox", "0 0 "+(width + margin.left + margin.right).toString()+" "+(height + margin.top + margin.bottom).toString()) 
+	.attr( "width", width + margin.left + margin.right)
+	.attr( "height", height + margin.top + margin.bottom)
+	.attr("preserveAspectRatio", "xMinYMin meet")
+	.call(responsivefy)
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
