@@ -2,8 +2,8 @@ var el_id = 'chart';
 var treeSumSortType = "number";
 
 var margin = {top: 30, right: 0, bottom: 20, left: 0},
-    width = .97*window.innerWidth - margin.left - margin.right, // same as script3
-    height = 500 - margin.top - margin.bottom,
+    width = 800 - margin.left - margin.right,
+    height = 360 - margin.top - margin.bottom,
     formatNumber = d3.format(","),
     transitioning;
 
@@ -24,11 +24,12 @@ var treemap = d3.treemap()
         .round(false);
 
 var svg = d3.select('#'+el_id)
-    // make svg responsive !!!
-    .attr( "viewBox", "0 0 " +(width + margin.left + margin.right).toString()+" "+(height + margin.bottom + margin.top).toString())
-    .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        .style("shape-rendering", "crispEdges");
+        .attr( "width", width + margin.left + margin.right)
+        .attr( "height", height + margin.bottom + margin.top)
+            .call(responsivefy)
+        .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .style("shape-rendering", "crispEdges");
 
 var grandparent = svg.append("g")
         .attr("class", "grandparent");
@@ -46,7 +47,9 @@ var grandparent = svg.append("g")
 
 d3.json("assets/data/us.json", function(data) {
     var root = d3.hierarchy(data);
+        var last_trans  = root;
 
+    
     treemap(root
         .sum(function (d) {
             if (treeSumSortType == "number") {
@@ -76,6 +79,7 @@ d3.json("assets/data/us.json", function(data) {
             .on("click", transition)
             .select("text")
             .text(name(d));
+        
         // grandparent color
         grandparent
             .datum(d.parent)
@@ -84,12 +88,12 @@ d3.json("assets/data/us.json", function(data) {
                 return '#f7af72'
             });
         var g1 = svg.insert("g", ".grandparent")
-            .datum(d)
-            .attr("class", "depth");
+                    .datum(d)
+                    .attr("class", "depth");
         var g = g1.selectAll("g")
-            .data(d.children)
-            .enter().
-            append("g");
+                    .data(d.children)
+                    .enter().
+                    .append("g");
         // add class and click handler to all g's with children
         g.filter(function (d) {
             return d.children;
@@ -103,6 +107,7 @@ d3.json("assets/data/us.json", function(data) {
             .enter().append("rect")
             .attr("class", "child")
             .call(rect);
+        
         // add title to parents
         g.append("rect")
             .attr("class", "parent")
@@ -111,6 +116,7 @@ d3.json("assets/data/us.json", function(data) {
             .text(function (d){
                 return d.data.name;
             });
+        
         /* Adding a foreign object instead of a text object, allows for text wrapping */
         g.append("foreignObject")
             .call(rect)
@@ -125,25 +131,33 @@ d3.json("assets/data/us.json", function(data) {
                 return html;
             })
             .attr("class", "textdiv"); //textdiv class allows us to style the text easily with CSS
+       
         function transition(d) {
             if (transitioning || !d) return;
+                last_trans = b;
             transitioning = true;
+            
             var g2 = display(d),
                 t1 = g1.transition().duration(650),
                 t2 = g2.transition().duration(650);
+            
             // Update the domain only after entering new elements.
             x.domain([d.x0, d.x1]);
             y.domain([d.y0, d.y1]);
+            
             // Enable anti-aliasing during the transition.
             svg.style("shape-rendering", null);
+            
             // Draw child nodes on top of parent nodes.
             svg.selectAll(".depth").sort(function (a, b) {
                 return a.depth - b.depth;
             });
+            
             // Fade-in entering text.
             g2.selectAll("text").style("fill-opacity", 0);
             g2.selectAll("foreignObject div").style("display", "none");
             /*added*/
+            
             // Transition to the new view.
             t1.selectAll("text").call(text).style("fill-opacity", 0);
             t2.selectAll("text").call(text).style("fill-opacity", 1);
@@ -158,30 +172,34 @@ d3.json("assets/data/us.json", function(data) {
             /* added */
             t2.selectAll(".foreignobj").call(foreign);
             /* added */
+            
             // Remove the old node when the transition is finished.
-            t1.on("end.remove", function(){
-                this.remove();
-                transitioning = false;
+              t1.on("end", function(){
+                  this.remove();
+                  svg.style("shape=rendering", "crispEdges");
+                  transitioning = false;
             });
         }
+       return g;
+    }
 
-        document.forms[0].addEventListener("change", function() {
-            treeSumSortType = document.forms[0].elements["treeSum"].value;
-            treemap(root
-            .sum(function (d) {
-                if (treeSumSortType == "number") {
-                    color = d3.scaleLinear().domain([0, 1/4*5000000, 2/4*5000000, 3/4*5000000, 5000000]).range(["#FF0000", "#B22222", "#DC143C", "#CD5C5C"]);
-                    return d["Total College"];
-                } else if (treeSumSortType == "percent") {
-                    color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#FFA500", "#FFD700", "#FF4500", "#FF6347"]);
-                    return d["Percent College"];
-                } else if (treeSumSortType == "male") {
-                    color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#008000", "#228B22", "#32CD32", "#7FFF00"]);
-                    return d["Percent College - Male"];
-                } else {
-                    color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#DB7093", "#FF1493", "#FF69B4", "#FFB6C1"]);
-                    return d["Percent College - Female"];
-                }
+        document.forms["tree-form"].addEventListener("change", function(evt) {
+                        treeSumSortType = this.elements["treeSum"].value;
+                        treemap(root
+                        .sum(function (d) {
+                            if (treeSumSortType == "number") {
+                                color = d3.scaleLinear().domain([0, 1/4*5000000, 2/4*5000000, 3/4*5000000, 5000000]).range(["#FF0000", "#B22222", "#DC143C", "#CD5C5C"]);
+                                return d["Total College"];
+                            } else if (treeSumSortType == "percent") {
+                                color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#FFA500", "#FFD700", "#FF4500", "#FF6347"]);
+                                return d["Percent College"];
+                            } else if (treeSumSortType == "male") {
+                                color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#008000", "#228B22", "#32CD32", "#7FFF00"]);
+                                return d["Percent College - Male"];
+                            } else {
+                                color = d3.scaleLinear().domain([0, 1/4*50, 2/4*50, 3/4*50, 50]).range(["#DB7093", "#FF1493", "#FF69B4", "#FFB6C1"]);
+                                return d["Percent College - Female"];
+                            }
 
             })
             .sort(function (a, b) {
@@ -197,14 +215,12 @@ d3.json("assets/data/us.json", function(data) {
 
             })
         );
-
-        display(root);
+        svg.selectAll(".depth").remove();
+        display(last_trans);
+           return false;
         });
 
-        return g;
-    }
-
-    function text(text) {
+      function text(text) {
         text.attr("x", function (d) {
             return x(d.x) + 6;
         })
